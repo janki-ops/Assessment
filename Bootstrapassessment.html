@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 30px;
+            column-gap: 30px;
+            width: 100%;
+        }
+         .form-label
+        {
+            width:400px;
+        }
+        h2
+        {
+            text-align: center;
+        }
+        button
+        {
+            
+            cursor: pointer;
+            width: 90%;
+       }
+       
+        @media (min-width:600) and (max-width: 900px) {
+      form {
+        flex-direction: column;
+      }
+    }
+
+       
+    </style>
+</head>
+<body>
+  <div class="container">
+     <div class="form-container">
+    <h2>Book Pickup Form</h2>
+    <form>
+     
+        
+    <div class="mb-3">
+    <label for="exampleInputFullName" class="form-label" >Full Name</label>
+    <input type="text" class="form-control" id="examplefullname" placeholder="Enter your full name" required>
+
+</div>
+    <div class="mb-3">
+    <label for="exampleInputphonenumber" class="form-label ">Phone Number</label>
+    <input type="tel" class="form-control" id="exampleInputphonenumber"  placeholder="+91" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label" >Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="example@email.com" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputbooktitle" class="form-label" >Book Title</label>
+    <input type="text" class="form-control" id="exampleInputbooktitle" placeholder="Enter book title" required>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputauthorname" class="form-label ">Author Name</label>
+    <input type="text" class="form-control" id="exampleInputauthorname" placeholder="Enter author name" aria-required="true">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputpickupdate" class="form-label">Pickup Date</label>
+    <input type="date" class="form-control" id="exampleInputpickupdate" are-required="true">
+  </div>
+  <button type="submit" class="btn btn-primary py-2 mx-0">Submit</button>
+  
+    <button type="reset" class="btn btn-primary py-2 my-4">Reset</button>
+  
+  
+      
+  
+</form>
+     </div>
+  </div>
+<script src="bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
