@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+        .container{
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .form-group{
+            display: flex;
+            flex-direction: column;
+        }
+        label{
+            font-weight: 600;
+        }
+        h2{
+            text-align: center;
+        }
+
+        button{
+            background-color: gray;
+            font-size: medium;
+            padding: 10px;
+        
+}
+button:hover{
+    background-color:dimgray;
+}
+
+ @media(max-width:600px){
+            .container{
+                font-size: small;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+<form class="container" method="post" action="#" name="frm" onsubmit="return checkdata()">
+   <h2>Complaint Form</h2>
+    <div class="form-group">
+    <label for="">Full Name: </label>
+    <input type="text" name="name" id="name">
+    <span id="nameerr" class="error"></span>
+    <br><br>
+    </div>
+
+    <div class="form-group">
+    <label for="">Phone Number:</label>
+    <input type="number" name="mno" id="mno">
+    <span id="mnoerr" class="error"></span>
+    <br><br>
+    </div>
+
+    <div class="form-group">
+    <label for="">Email Address:</label>
+    <input type="email" name="email" id="email">
+    <span id="emailerr" class="error"></span>
+    <br><br>
+
+    <div class="form-group">
+    <label for="">Vehicle Details:</label>
+    <select id="vdt" name="vdt"  > 
+        <option value="">Select Your Vicheles</option>
+        <option value="Bike">Bike</option>
+        <option value="Truck">Truck</option>
+        <option value="Car">Car</option>
+        <option value="Other">Other</option>
+    </select>
+    <span id="vdterr" class="error"></span>
+    <br><br>
+
+    <div class="form-group">
+    <label for="">Complaint/Issue:</label>
+    <textarea id="issue" rows="4" name="issue" ></textarea>
+    <span id="issueerr" class="error"></span>
+    <br><br>
+
+    <button type="submit" value="Save">Submit</button>
+
+ </form>
+
+ <script>
+    let status=0
+    const checkdata=()=>{
+        document.getElementById("nameerr").innerHTML=""
+        document.getElementById("mnoerr").innerHTML=""
+        document.getElementById("emailerr").innerHTML=""
+        document.getElementById("vdterr").innerHTML=""
+        document.getElementById("issueerr").innerHTML=""
+
+        let nm=document.frm.name.value
+        let mno=document.frm.mno.value
+        let email=document.frm.email.value
+        let vdt=document.frm.vdt.value
+        let issue=document.frm.issue.value
+
+        let nmptn=/[A-Za-z]$/
+        if(nm==""){
+            document.getElementById('nameerr').innerHTML="please Enter Name"
+            status=1
+        }
+    
+        else if(nm.length<3||nm.length>10){
+            document.getElementById('nameerr').innerHTML="Name must be 3 to 10 characters"
+            status=1
+        }
+
+        let numptn=/[0-9]{10,12}$/
+        if(mno==""){
+            
+            document.getElementById('mnoerr').innerHTML="please Enter Number exactly 10 digits"
+            status=1
+        }
+
+
+
+        let emptn=/^[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]{2,3}$/
+        if(email==""){
+            document.getElementById('emailerr').innerHTML="please enter email"
+            status=1
+        }
+        else if(!emptn.test(email)){
+            document.getElementById('emailerr').innerHTML="please enter valid email"
+            status=1
+        }
+
+        
+        if(vdt==="")
+        {
+            document.getElementById('vdterr').innerHTML="please Select vihecle Details"
+            status=1
+        }
+
+        
+        if(issue.length<10)
+        {
+            document.getElementById('issueerr').innerHTML="Complaint must be grater than 10 character!"
+            status=1
+        }
+
+        if(status==0){
+            return true
+        }else{
+            return false
+        }
+       
+
+    }
+
+ </script>
+
+</body>
+</html>
